@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="pt-BR" data-theme="dark">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Sobre | Chumseon Space</title>
+<!-- Fontes do Google: Montserrat (textos e títulos) e Noto Sans KR (as letras coreanas 춤선) -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,400;0,500;0,600;1,800;1,900&family=Noto+Sans+KR:wght@300;700&display=swap" rel="stylesheet">
+
+<!-- CSS: base.css vale para todas as páginas; o segundo é só desta página -->
+<link rel="stylesheet" href="css/base.css">
+<link rel="stylesheet" href="css/sobre.css">
+</head>
+<!-- data-page diz ao CSS em qual página estamos -->
+<body data-page="sobre">
+
+<!--
+  sobre.html  |  POR QUE ESTE TEMA + INFORMAÇÕES PESSOAIS
+  CSS: css/base.css + css/sobre.css
+  JS : js/dados.js + js/app.js + js/sobre.js
+  Os trechos marcados com "EDITE" são para você escrever com as suas palavras.
+-->
+<!-- NAVBAR: os links e botões de conta são montados pelo js/app.js (função montarNavbar). Estilo em css/base.css, seção 5 -->
+<nav class="nav in" id="nav_principal" aria-label="Principal">
+  <a class="brand" href="index.html"><span class="disc" lang="ko" aria-hidden="true">춤</span><span class="word">CHUMSEON<small>SPACE</small></span></a>
+  <div class="links" id="div_links"></div>
+  <div class="acts"><span class="d" id="span_acoes"></span><button class="ibtn" id="btn_tema" onclick="trocarTema()" aria-label="Alternar tema claro e escuro"></button></div>
+  <button class="ibtn burger" id="btn_menu" onclick="abrirMenu()" aria-label="Abrir menu" aria-expanded="false">&#9776;</button>
+</nav>
+
+<main>
+  <div class="sobre">
+    <header class="hero2">
+      <div class="ko in" lang="ko" aria-hidden="true">춤선</div>
+      <div>
+        <h1 class="in" style="--d:.2s">Por que a dança?</h1>
+        <p class="lead in" style="--d:.35s">Chumseon Space nasceu de uma ideia simples: o corpo desenha linhas no espaço, e os dados também desenham linhas em um gráfico.</p>
+      </div>
+    </header>
+
+    <div class="cols">
+      <!-- POR QUE ESSE TEMA -->
+      <section class="panel in" style="--d:.45s">
+        <h2>Por que escolhi este tema</h2>
+        <p>Dança e dados têm algo em comum: os dois transformam movimento em forma. Quando alguém ensaia, assiste a uma dica ou responde a um quiz, essa ação vira um número, e o número vira uma linha no painel.</p>
+        <p>Quis juntar o lado artístico com o lado técnico do curso: um site bonito de abrir e, por trás, um banco de dados, algoritmos e cálculos de verdade.</p>
+        <!-- EDITE: escreva aqui, com as suas palavras, qual é a sua ligação com a dança (2 ou 3 frases) -->
+        <p class="edite"><b>Minha ligação com a dança:</b> escreva aqui, em 2 ou 3 frases, o que a dança significa para você.</p>
+      </section>
+
+      <!-- O NOME -->
+      <section class="panel in" style="--d:.55s">
+        <h2>O que significa 춤선</h2>
+        <p class="nome-ko" lang="ko">춤선 <small>chumseon</small></p>
+        <p>Em coreano, 춤 (chum) é <b>dança</b> e 선 (seon) é <b>linha</b>. 춤선 é a linha do corpo ao dançar: a silhueta que o movimento desenha no espaço.</p>
+        <p>Ballet dá precisão, o hip-hop dá impacto e o contemporâneo dá fluidez. Cada estilo desenha a sua linha, e por isso cada um tem a sua cor no site.</p>
+      </section>
+
+      <!-- SOBRE MIM -->
+      <section class="panel in" style="--d:.65s">
+        <h2>Sobre mim</h2>
+        <dl class="info">
+          <dt>Nome</dt><dd>Laura de Araujo</dd>
+          <dt>Curso</dt><dd>Análise e Desenvolvimento de Sistemas (ADS)</dd>
+          <dt>Instituição</dt><dd>São Paulo Tech School</dd>
+          <dt>Projeto</dt><dd>Chumseon Space: site de dança com banco de dados e dashboard</dd>
+          <dt>Feito com</dt><dd>HTML, CSS, JavaScript e MySQL</dd>
+        </dl>
+        <!-- EDITE: acrescente aqui mais informações pessoais se quiser (hobbies, o que quer fazer na área...) -->
+        <p class="edite"><b>Em poucas palavras:</b> escreva aqui uma frase sobre você.</p>
+      </section>
+    </div>
+
+    <!-- LINHA DO TEMPO: montada por js/sobre.js (desenharEtapas) com um vetor e um for -->
+    <h2 class="t in" style="--d:.2s;margin-top:56px">Como o site foi construído</h2>
+    <ol class="etapas" id="div_etapas"></ol>
+  </div>
+</main>
+  <footer><span>© 2026 Chumseon Space</span><span>Projeto da faculdade de ADS</span></footer>
+<div class="toast" id="div_aviso" role="status"></div>
+
+<!-- JS (a ordem importa): dados.js -> app.js -> arquivo da página (que chama iniciarPagina no final) -->
+<script src="js/dados.js"></script>
+<script src="js/app.js"></script>
+<script src="js/sobre.js"></script>
+</body>
+</html>

@@ -1,0 +1,108 @@
+/* ==========================================================================
+   calculos.css  |  estilos SÓ de calculos.html
+   Depende de css/base.css (.panel, .pill, .hint, variáveis)
+   Ligações com o HTML:
+     .lab .............. bloco da página (título + grade de cartões)
+     .grid ............. os 4 cartões de cálculo (2 colunas)
+     .formula .......... a fórmula em letras pequenas
+     label.f / .f input / .f select ... campos (iguais aos do cadastro)
+     .res .............. caixa onde o JS escreve o resultado
+   ========================================================================== */
+.lab {
+  max-width: 1100px;
+  margin: 30px auto 0;
+  padding: 0 20px;
+  position: relative;
+}
+.lab::before {
+  content: "춤선";
+  position: absolute;
+  right: 20px;
+  top: -40px;
+  font: 700 clamp(130px, 20vw, 270px)/1 var(--k);
+  color: transparent;
+  -webkit-text-stroke: 1.5px var(--accent);
+  opacity: 0.22;
+  pointer-events: none;
+}
+.lab h1 {
+  font: italic 800 clamp(28px, 4vw, 44px)/1.1 var(--f);
+  margin: 0 0 6px;
+  color: var(--hi);
+}
+.lab .sub {
+  color: var(--muted);
+  margin: 0 0 26px;
+  max-width: 60ch;
+}
+.grid {
+  position: relative;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+}
+.grid h2 {
+  margin: 0 0 6px;
+  font-size: 19px;
+  color: var(--hi);
+}
+.formula {
+  margin: 0 0 18px;
+  font-size: 13px;
+  color: var(--accent);
+}
+label.f {
+  display: block;
+  margin-bottom: 16px;
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--hi);
+}
+.f input,
+.f select {
+  display: block;
+  width: 100%;
+  margin-top: 6px;
+  padding: 13px 16px;
+  border-radius: 14px;
+  border: 1px solid var(--line);
+  background: transparent;
+  color: var(--hi);
+  font: 400 15px var(--f);
+  transition: border-color 0.2s;
+}
+.f select option {
+  background: var(--panel);
+  color: var(--hi);
+}
+.f input:focus,
+.f select:focus {
+  outline: none;
+  border-color: var(--accent);
+}
+.res {
+  margin-top: 18px;
+  font-size: 14px;
+  line-height: 1.7;
+  color: var(--text);
+}
+.res:empty {
+  display: none;
+}
+.res b {
+  color: var(--accent);
+}
+.res small {
+  color: var(--muted);
+}
+.res a {
+  color: var(--hi);
+  border-bottom: 1px solid var(--accent);
+}
+
+/* RESPONSIVO */
+@media (max-width: 900px) {
+  .grid {
+    grid-template-columns: 1fr;
+  }
+}
