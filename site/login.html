@@ -16,24 +16,11 @@
 <!-- data-page diz ao CSS e ao js/app.js em qual página estamos -->
 <body data-page="login">
 
-<!--
-  login.html  |  ENTRAR
-  CSS: css/base.css + css/auth.css
-  JS : js/dados.js + js/app.js + js/login.js
-  Conta de teste: demo@chumseon.space  /  senha 123456
--->
-<!-- NAVBAR: os links e botões de conta são montados pelo js/app.js (função montarNavbar). Estilo em css/base.css, seção 5 -->
-<nav class="nav in" id="nav_principal" aria-label="Principal">
-  <a class="brand" href="index.html"><span class="disc" lang="ko" aria-hidden="true">춤</span><span class="word">CHUMSEON<small>SPACE</small></span></a>
-  <div class="links" id="div_links"></div>
-  <div class="acts"><span class="d" id="span_acoes"></span><button class="ibtn" id="btn_tema" onclick="trocarTema()" aria-label="Alternar tema claro e escuro"></button></div>
-  <button class="ibtn burger" id="btn_menu" onclick="abrirMenu()" aria-label="Abrir menu" aria-expanded="false">&#9776;</button>
-</nav>
-
+<br><br>
 <main>
   <div class="auth">
     <div><div class="ko" lang="ko" aria-hidden="true">춤선</div><h1>Que bom ver você</h1><p class="lead">Entre para acompanhar o painel da comunidade e receber dicas do seu estilo.</p></div>
-    <!-- FORMULÁRIO DE LOGIN: o onsubmit chama entrar() (js/login.js); o "return false" só impede a página de recarregar -->
+    
     <form class="panel" id="form_login" onsubmit="entrar(); return false;" novalidate>
       <label class="f">E-mail<input id="input_email" name="email" type="email" autocomplete="email"></label>
       <label class="f">Senha<input id="input_senha" name="senha" type="password" autocomplete="current-password"></label>
@@ -42,7 +29,7 @@
       <p class="hint">Sem conta? <a href="cadastro.html">Criar conta</a><br>Para testar: demo@chumseon.space, senha 123456.</p>
     </form>
   </div>
-</main>
+</main> <br><br><br>
   <footer><span>© 2026 Chumseon Space</span><span>Projeto da faculdade de ADS</span></footer>
 <div class="toast" id="div_aviso" role="status"></div>
 

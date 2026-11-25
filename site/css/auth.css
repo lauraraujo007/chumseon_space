@@ -7,9 +7,9 @@
      label.f / .f input ... cada campo de texto do formulário
    ========================================================================== */
 .auth {
-  max-width: 1100px;
-  margin: 30px auto 0;
-  padding: 0 20px;
+  max-width: 1200px;
+  margin: 0px auto 0;
+  padding: auto;
   display: grid;
   grid-template-columns: 1fr 1.1fr;
   gap: 50px;
@@ -18,22 +18,19 @@
 }
 
 .auth .ko {
-  font: 700 clamp(110px, 18vw, 230px)/1 var(--k);
+  font: 700 clamp(110px, 100vw, 150px)/1 var(--k);
   color: transparent;
+  padding: 10px;
   -webkit-text-stroke: 1.6px var(--accent);
 }
 
 .auth h1 {
   font: italic 800 clamp(28px, 4vw, 42px)/1.1 var(--f);
-  margin: 0 0 10px;
+  margin: auto;
   color: var(--hi);
 }
 
-.auth .lead {
-  color: var(--muted);
-  margin: 0 0 24px;
-  max-width: 40ch;
-}
+
 
 label.f {
   display: block;

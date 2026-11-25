@@ -9,13 +9,13 @@
    ========================================================================== */
 
 /* ENERGIAS: nome, estilo que combina e frase (vetores com a mesma posição) */
-let vibe_nome = ['Foco', 'Impacto', 'Fluir', 'Brilho'];
+let vibe_nome = ['Leveza', 'Atitude', 'Fluidez', 'Performance'];
 let vibe_estilo = ['ballet', 'hiphop', 'contemporaneo', 'kpop'];
 let vibe_frase = [
-  'Hoje pede precisão e postura.',
-  'Hoje pede peso e energia.',
-  'Hoje pede respiração e liberdade.',
-  'Hoje pede ritmo e atitude.'
+  'O dia pede postura, alongamento e controle corporal',
+  'O corpo pede peso, presença e conexão',
+  'O momento pede movimentos leves, entrega e liberdade',
+  'A vibe pede expressão facial, sincronia e energia de palco'
 ];
 
 let videoTocando = -1;   // posição do vídeo que está tocando (-1 = nenhum)
@@ -34,7 +34,7 @@ function desenharEnergias() {
 function escolherEnergia(i) {
   trocarEstilo(vibe_estilo[i]);
   let nomeEstilo = estilo_nome[estilo_id.indexOf(vibe_estilo[i])];
-  p_sugestao.innerHTML = '<b>Hoje combina com ' + nomeEstilo + '.</b> ' + vibe_frase[i] + ' <a href="#dicas">Ver dicas em vídeo</a>';
+  p_sugestao.innerHTML = '<b>Hoje combina com ' + nomeEstilo + '.</b> ' + vibe_frase[i] + ' <a href="#dicas"> <br> Ver dicas em vídeo</a>';
 }
 
 /* troca o estilo (cor do site + vídeos). Usada pelas abas, cards e energias */

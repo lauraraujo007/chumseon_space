@@ -43,6 +43,15 @@
 .cols .panel {
   padding: 24px;
 }
+
+.cols .panel:nth-child(4) {
+  grid-column: 1 / -1;
+}
+
+.cols img {
+  width: 100px;
+}
+
 .cols h2 {
   margin: 0 0 12px;
   font-size: 19px;

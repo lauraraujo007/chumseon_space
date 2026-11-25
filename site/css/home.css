@@ -51,7 +51,7 @@
   right: 5%;
   top: 50%;
   transform: translateY(-50%);
-  font: 700 clamp(170px, 30vw, 430px)/1 var(--k);
+  font: 700 clamp(120px, 22vw, 320px)/1 var(--k);
   letter-spacing: 0.02em;
   color: transparent;
   -webkit-text-stroke: 2px var(--accent);
@@ -118,7 +118,7 @@
 .hero p {
   margin: 0 0 26px;
   max-width: 46ch;
-  font-size: 17px;
+  font-size: 14px;
 }
 .row {
   display: flex;
@@ -189,7 +189,7 @@
   position: absolute;
   z-index: 4;
   right: 30px;
-  bottom: 27%;
+  bottom: 19%;
   text-align: right;
   font-size: 12px;
   color: var(--muted);
@@ -210,7 +210,7 @@ section {
 .head p {
   margin: 0;
   color: var(--muted);
-  max-width: 44ch;
+  max-width: 46ch;
 }
 .cards {
   display: grid;
@@ -259,6 +259,21 @@ section {
   stroke-linejoin: round;
   opacity: 0.8;
 }
+
+/* FOTO DO CARD: cobre o card inteiro, fica atrás das linhas (svg) e do texto.
+   object-position escolhe qual parte da foto aparece quando ela é cortada. */
+.sc .foto {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0.6;
+}
+.sc .foto-ballet { object-position: center 40%; }
+.sc .foto-hiphop { object-position: center center; opacity: 0.42; }
+.sc .foto-contemporaneo { object-position: center 78%; }
+
 .sc > *:not(svg) {
   position: relative;
 }
