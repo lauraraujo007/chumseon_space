@@ -1,20 +1,4 @@
--- =====================================================================
--- CHUMSEON SPACE - banco de dados do site de dança (MySQL 8 / Workbench)
--- Execute este script inteiro (raio ⚡). Ele apaga e recria o banco.
---
--- RELACIONAMENTOS DO MODELO
---   1:N  estilo        -> usuario          (cada usuário tem 1 estilo favorito)
---   1:N  tempo_pratica -> usuario
---   1:N  sentido       -> usuario
---   1:N  estilo        -> video
---   1:N  usuario       -> ensaio
---   1:N  usuario       -> tentativa_quiz
---   1:1  usuario       -> perfil_usuario   (PK = FK: o perfil usa o mesmo id do usuário)
---   N:N  usuario  x  video                 (resolvido pela tabela usuario_video,
---                                           que também guarda a data em que assistiu)
---
--- No JavaScript (js/dados.js) cada tabela vira um grupo de vetores.
--- =====================================================================
+
 DROP DATABASE IF EXISTS chumseon_space;
 CREATE DATABASE chumseon_space CHARACTER SET utf8mb4;
 USE chumseon_space;
