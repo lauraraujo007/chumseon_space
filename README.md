@@ -1,59 +1,151 @@
+ <div align="center">
+
+<img src="https://capsule-render.vercel.app/api?type=waving&color=0:8b7bff,100:948ade&height=120&section=header" alt="" width="100%" />
+
+<img src="./assets/logo-circular.svg" alt="Logo Chumseon Space" width="130" />
+
 # Chumseon Space
 
-Site de dança com **Node.js + Express + MySQL** no servidor e HTML/CSS/JS puro no navegador.
-Projeto independente: tem o próprio banco (`chumseon_space`) e não depende de nenhum outro projeto.
+### 춤선 — A linha que a dança desenha no espaço.
 
-## Rodar em outro computador
+**Um espaço para descobrir, praticar e acompanhar sua evolução na dança.**
 
-1. Instale o **Node.js** e o **MySQL** (e o MySQL Workbench, se quiser).
-2. No MySQL deste computador, execute o arquivo `src/database/chumseon_space.sql` inteiro.
-   > Atenção: ele faz `DROP DATABASE IF EXISTS chumseon_space` e recria o banco do zero.
-3. Na pasta do projeto:
-   ```
-   npm install
-   ```
-4. Copie `.env.exemplo` para `.env.dev` e preencha `DB_USER`, `DB_PASSWORD` e `DB_PORT`
-   com os dados do MySQL **deste** computador (o `.env.dev` não vai para o git).
-5. Confira tudo de uma vez (conexão, banco, tabelas, cadastro de teste):
-   ```
-   node diagnostico.js
-   ```
-6. Ligue o servidor:
-   ```
-   node app.js
-   ```
-7. Acesse **http://localhost:3333**. Conta de teste: `demo@chumseon.space` / `123456`.
-   De outro aparelho, use `http://IP-DO-COMPUTADOR:3333` (libere a porta 3333 no firewall).
+<img src="https://img.shields.io/badge/HTML5-Site-8b7bff?style=for-the-badge&logo=html5&logoColor=white" alt="HTML5" />
+<img src="https://img.shields.io/badge/CSS3-Estilização-948ade?style=for-the-badge&logo=css3&logoColor=white" alt="CSS3" />
+<img src="https://img.shields.io/badge/JavaScript-Interatividade-8b7bff?style=for-the-badge&logo=javascript&logoColor=white" alt="JavaScript" />
+<img src="https://img.shields.io/badge/MySQL-Banco%20de%20Dados-948ade?style=for-the-badge&logo=mysql&logoColor=white" alt="MySQL" />
+<img src="https://img.shields.io/badge/Chart.js-Dashboard-8b7bff?style=for-the-badge&logo=chartdotjs&logoColor=white" alt="Chart.js" />
 
-> Abra o site sempre pelo endereço do `node` (porta 3333), e não pelo Live Server: é o `app.js` que entrega as páginas e a API juntos.
+</div>
 
-## Se o cadastro der erro
+---
 
-A mensagem aparece em vermelho embaixo do formulário e diz o que conferir. Rode `node diagnostico.js`
-na pasta do projeto: ele para no primeiro problema e explica como resolver.
+## 💜 Sobre o projeto
 
-## Estrutura
+**춤선 (Chumseon)** é uma expressão coreana que representa a linha ou silhueta que o corpo desenha durante a dança, traduzindo a relação entre movimento, expressão e espaço.
 
+O **Chumseon Space** é um projeto individual desenvolvido na disciplina de Pesquisa e Inovação do curso de Análise e Desenvolvimento de Sistemas da SPTech.
+
+A proposta é criar um espaço digital dedicado à dança, permitindo que os usuários descubram diferentes estilos, assistam a dicas em vídeo, realizem pequenos quizzes e registrem seus ensaios.
+
+O projeto também conta com um dashboard interativo, no qual é possível acompanhar o próprio desenvolvimento por meio de indicadores e gráficos.
+
+## Funcionalidades
+
+O site conta com **6 páginas principais**:
+
+| Página | Acesso | Descrição |
+|:---:|:---:|---|
+| **Home** | Público | Apresentação do projeto, energia do dia, estilos de dança e dicas em vídeo. |
+| **Cadastro e Login** | Público | Criação de conta e autenticação dos usuários. |
+| **Dashboard** | Restrito | Indicadores, gráficos de desempenho, dados da comunidade e meta semanal de ensaio. |
+| **Sobre** | Público | Apresentação do projeto e justificativa da escolha do tema. |
+
+**Outros recursos do projeto:**
+
+- Cronômetro para registrar o tempo de ensaio.
+- Acompanhamento da meta semanal de prática.
+- Tema claro e escuro.
+- Personalização das cores do site conforme o estilo de dança escolhido.
+
+## Tecnologias utilizadas
+
+| Tecnologia | Aplicação |
+|---|---|
+| **HTML5** | Estruturação das páginas. |
+| **CSS3** | Estilização, responsividade e temas visuais. |
+| **JavaScript** | Funcionalidades, interações e cálculos do sistema. |
+| **MySQL** | Armazenamento e gerenciamento dos dados. |
+| **Chart.js** | Criação dos gráficos do dashboard. |
+
+## Como executar o projeto
+
+### Pré-requisitos
+
+Para executar o projeto localmente, é necessário ter:
+
+| Programa | Finalidade |
+|---|---|
+| **Git** | Clonar o repositório. |
+| **Visual Studio Code** | Editar e executar o projeto. |
+| **MySQL Workbench** | Gerenciar e executar o banco de dados. |
+| **Node.js** | Executar o servidor, caso utilize o método com npm. |
+
+### 1. Clonar o repositório
+
+Abra o terminal e execute:
+
+```bash
+git clone https://github.com/SEU-USUARIO/NOME-DO-REPOSITORIO.git
 ```
-app.js                    liga o servidor, as rotas e a pasta public
-diagnostico.js            confere .env.dev, MySQL, banco, tabelas e o INSERT do cadastro
-.env.exemplo              modelo do .env.dev (cada computador cria o seu)
-public/                   o site (html, css, js, img)
-src/
-├── database/             config.js (executar) e chumseon_space.sql
-├── routes/               URL + método -> controller
-├── controllers/          valida o que chegou e responde (400, 403, 409, 500...)
-└── models/               os SQLs (SELECT/INSERT) com "?" nos valores
+
+Entre na pasta do projeto:
+
+```bash
+cd chumseon_space
 ```
 
-## Rotas da API
+### 2. Executar o site
 
-| Método | URL | O que faz |
-|---|---|---|
-| POST | /usuarios/cadastrar | INSERT em `usuario` e `perfil_usuario` (409 se o e-mail já existe) |
-| POST | /usuarios/autenticar | SELECT do login (403 se errar e-mail/senha) |
-| GET | /dashboard/comunidade | KPIs e gráficos da comunidade |
-| GET | /dashboard/pessoal/:idUsuario/:periodo | KPIs e gráficos pessoais (periodo = 7 ou 30 dias) |
-| POST | /ensaios/registrar | INSERT em `ensaio` |
-| POST | /videos/assistir | INSERT na tabela N:N `usuario_video` |
-| POST | /quiz/registrar | INSERT em `tentativa_quiz` |
+Existem duas possibilidades para executar o projeto.
+
+**Método 1 — Live Server**
+
+1. Abra a pasta do projeto no Visual Studio Code.
+2. Instale a extensão Live Server.
+3. Clique com o botão direito no arquivo `index.html`.
+4. Selecione a opção **Open with Live Server**.
+5. O site será aberto no navegador.
+
+**Método 2 — Node.js**
+
+Caso utilize o servidor Node.js, execute no terminal:
+
+```bash
+npm i
+npm start
+```
+
+Depois, acesse o endereço informado no terminal.
+
+### 3. Configurar o banco de dados
+
+1. Abra o MySQL Workbench.
+2. Conecte-se ao servidor MySQL local.
+3. Abra o arquivo `banco/chumseon_space.sql`.
+4. Execute o script utilizando o botão de execução (⚡).
+5. O banco de dados `chumseon_space` será criado com suas respectivas tabelas e estruturas.
+
+**Atenção:** o script utiliza `DROP DATABASE IF EXISTS`, portanto, sua execução apaga e recria o banco de dados. Não execute novamente caso queira preservar dados existentes.
+
+## Banco de dados
+
+O banco de dados do Chumseon Space possui **9 tabelas**, organizadas para armazenar informações dos usuários, estilos de dança, vídeos, ensaios e atividades realizadas na plataforma.
+
+
+## Conta de demonstração
+
+Para acessar o sistema, também é possível utilizar uma conta de demonstração:
+
+| Campo | Informação |
+|---|---|
+| E-mail | `demo@chumseon.space` |
+| Senha | `123456` |
+
+Você também pode criar sua própria conta na página de cadastro.
+
+## 👩‍💻 Autora
+
+**Laura de Araujo**
+
+Estudante de Análise e Desenvolvimento de Sistemas (ADS) na SPTech.
+
+---
+
+<div align="center">
+
+*Dance, pratique, evolua. Cada movimento conta.*
+
+<img src="https://capsule-render.vercel.app/api?type=waving&color=0:948ade,100:8b7bff&height=110&section=footer" alt="" width="100%" />
+
+</div>
