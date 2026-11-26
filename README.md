@@ -76,7 +76,7 @@ Para executar o projeto localmente, é necessário ter:
 Abra o terminal e execute:
 
 ```bash
-git clone https://github.com/SEU-USUARIO/NOME-DO-REPOSITORIO.git
+git clone https://github.com/lauraraujo007/chumseon_space.git
 ```
 
 Entre na pasta do projeto:
