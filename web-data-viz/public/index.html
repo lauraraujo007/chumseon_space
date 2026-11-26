@@ -133,42 +133,39 @@
               Cada estilo trabalha a linha do corpo de um jeito                  
           </div>
           <div class="cards">
-            <button
+            <a
               class="sc"
-              onclick="escolherEstiloCard('ballet')"
+              href="https://www.bonashistorias.com.br/single-post/danca-ballet-classico-historia-curiosidades-e-caracteristicas"
               style="--c: #8b7bff"
             >
             <img class="foto foto-ballet" src="img/ballet.jpg" alt="ballet" loading="lazy">
-              
               <h3>Ballet clássico</h3>
               <p>A base da linha: precisão, postura e geometria do corpo.</p>
-              <span class="link">Ver dicas</span>
-            </button>
-            <button
+              <span class="link">Ver mais</span>
+            </a>
+            <a
               class="sc"
-              onclick="escolherEstiloCard('hiphop')"
+              href="https://www.bonashistorias.com.br/single-post/danca-hip-hop-o-cinquentenario-de-surgimento-da-mais-famosa-danca-urbana"
               style="--c: #ff6a4d"
             >
             <img class="foto foto-hiphop" src="img/hiphop.jpg" alt="hiphop" loading="lazy">
               <h3>Hip-hop e danças urbanas</h3>
               <p>A quebra da linha: peso, energia, impacto e isolamentos.</p>
-              <span class="link">Ver dicas</span>
-            </button>
-            <button
+              <span class="link">Ver mais</span>
+            </a>
+            <a
               class="sc"
-              onclick="escolherEstiloCard('contemporaneo')"
+              href="https://portalmud.com.br/portal/laboratorio-da-danca/o-trabalho-de-chao-da-danca-moderna-a-danca-contemporanea/"
               style="--c: #3fd6c0"
             >
             <img class="foto foto-contemporaneo" src="img/contemporaneo.jpg" alt="contemporaneo" loading="lazy">
               <h3>Dança contemporânea</h3>
               <p>A fluidez da linha: gravidade, respiração e liberdade.</p>
-              <span class="link">Ver dicas</span>
-            </button>
+              <span class="link">Ver mais</span>
+            </a>
           </div>
         </section>
 
-        <!-- DICAS EM VÍDEO: as abas e os vídeos ficam aqui no HTML. O js/home.js só mostra o grupo do estilo escolhido (função desenharVideos).
-             Para cada vídeo, preencha o href (link do YouTube) e o src da imagem (capa). -->
         <section id="dicas">
           <div class="head">
             <div><h2 class="t">Dicas em vídeo</h2></div>
@@ -222,13 +219,11 @@
             </button>
           </div>
 
-          <!-- ===== VÍDEOS: Ballet clássico ===== -->
           <div class="vgrid" id="videos_ballet">
             <div class="vcard">
-              <!-- href = link do vídeo no YouTube | src = imagem da capa (caminho em img/ ou link) -->
-              <a class="vid" href="https://youtu.be/ZBf2ZDobkjg?si=JzYdT-8pLmappfRq" target="_blank" rel="noopener">
+              <a class="vid" href="https://youtu.be/HjIf-AWaWKg?si=jFvvQdsQsNeztEXz" target="_blank" rel="noopener">
                 <div class="thumb">
-                  <img src="./img/img1.png" alt="Capa do vídeo: Postura e alinhamento em 5 minutos" />
+                  <img src="./img/img1.jpg" alt="Capa do vídeo: Postura e alinhamento em 5 minutos" />
                   <span class="play" aria-hidden="true">&#9654;</span>
                 </div>
                 <strong>Postura e alinhamento</strong>
@@ -239,10 +234,10 @@
               </button>
             </div>
             <div class="vcard">
-              <!-- href = link do vídeo no YouTube | src = imagem da capa (caminho em img/ ou link) -->
-              <a class="vid" href="" target="_blank" rel="noopener">
+              
+              <a class="vid" href="https://youtu.be/ZBf2ZDobkjg?si=JzYdT-8pLmappfRq" target="_blank" rel="noopener">
                 <div class="thumb">
-                  <img src="" alt="Capa do vídeo: Primeiros passos na barra" />
+                  <img src="./img/img2.jpg" alt="Capa do vídeo: Primeiros passos na barra" />
                   <span class="play" aria-hidden="true">&#9654;</span>
                 </div>
                 <strong>Primeiros passos na barra</strong>
@@ -253,10 +248,10 @@
               </button>
             </div>
             <div class="vcard">
-              <!-- href = link do vídeo no YouTube | src = imagem da capa (caminho em img/ ou link) -->
-              <a class="vid" href="" target="_blank" rel="noopener">
+             
+              <a class="vid" href="https://youtu.be/wihT3KDslU0?si=3ftOO3mdyC7nSVS1" target="_blank" rel="noopener">
                 <div class="thumb">
-                  <img src="" alt="Capa do vídeo: Port de bras para iniciantes" />
+                  <img src="./img/img3.jpg" alt="Capa do vídeo: Port de bras para iniciantes" />
                   <span class="play" aria-hidden="true">&#9654;</span>
                 </div>
                 <strong>Port de bras para iniciantes</strong>
@@ -268,13 +263,12 @@
             </div>
           </div>
 
-          <!-- ===== VÍDEOS: Hip-hop e urbanas ===== -->
+          
           <div class="vgrid" id="videos_hiphop" hidden>
-            <div class="vcard">
-              <!-- href = link do vídeo no YouTube | src = imagem da capa (caminho em img/ ou link) -->
-              <a class="vid" href="" target="_blank" rel="noopener">
+            <div class="vcard">  
+              <a class="vid" href="https://youtu.be/8TuimkcTqPk?si=eUH2jeMi8Cx98Ia5" target="_blank" rel="noopener">
                 <div class="thumb">
-                  <img src="" alt="Capa do vídeo: Fundamentos: bounce e rock" />
+                  <img src="./img/img4.jpg" alt="Capa do vídeo: Fundamentos: bounce e rock" />
                   <span class="play" aria-hidden="true">&#9654;</span>
                 </div>
                 <strong>Fundamentos: bounce e rock</strong>
@@ -285,10 +279,9 @@
               </button>
             </div>
             <div class="vcard">
-              <!-- href = link do vídeo no YouTube | src = imagem da capa (caminho em img/ ou link) -->
-              <a class="vid" href="" target="_blank" rel="noopener">
+              <a class="vid" href="https://youtu.be/6n3THHn_gVs?si=eARVb4eFdTjEHZQz" target="_blank" rel="noopener">
                 <div class="thumb">
-                  <img src="" alt="Capa do vídeo: Isolações de peito e quadril" />
+                  <img src="./img/img5.jpg" alt="Capa do vídeo: Isolações de peito e quadril" />
                   <span class="play" aria-hidden="true">&#9654;</span>
                 </div>
                 <strong>Isolações de peito e quadril</strong>
@@ -299,10 +292,9 @@
               </button>
             </div>
             <div class="vcard">
-              <!-- href = link do vídeo no YouTube | src = imagem da capa (caminho em img/ ou link) -->
-              <a class="vid" href="" target="_blank" rel="noopener">
+              <a class="vid" href="https://youtu.be/IZqy_hacR_0?si=Z7q6N1t_U3t4wCjT" target="_blank" rel="noopener">
                 <div class="thumb">
-                  <img src="" alt="Capa do vídeo: Freestyle sem medo" />
+                  <img src="./img/img6.jpg" alt="Capa do vídeo: Freestyle sem medo" />
                   <span class="play" aria-hidden="true">&#9654;</span>
                 </div>
                 <strong>Freestyle sem medo</strong>
@@ -314,13 +306,11 @@
             </div>
           </div>
 
-          <!-- ===== VÍDEOS: Contemporâneo ===== -->
           <div class="vgrid" id="videos_contemporaneo" hidden>
             <div class="vcard">
-              <!-- href = link do vídeo no YouTube | src = imagem da capa (caminho em img/ ou link) -->
-              <a class="vid" href="" target="_blank" rel="noopener">
+              <a class="vid" href="https://youtu.be/YpmimxVmuKo?si=3QZgJANTiAriJmKs" target="_blank" rel="noopener">
                 <div class="thumb">
-                  <img src="" alt="Capa do vídeo: Respiração e peso" />
+                  <img src="./img/img7.jpg" alt="Capa do vídeo: Respiração e peso" />
                   <span class="play" aria-hidden="true">&#9654;</span>
                 </div>
                 <strong>Respiração e peso</strong>
@@ -330,11 +320,10 @@
                 Marcar como assistido
               </button>
             </div>
-            <div class="vcard">
-              <!-- href = link do vídeo no YouTube | src = imagem da capa (caminho em img/ ou link) -->
-              <a class="vid" href="" target="_blank" rel="noopener">
+            <div class="vcard">           
+              <a class="vid" href="https://youtu.be/EtleUqZBs38?si=F7hoWGNhyanvnyMW" target="_blank" rel="noopener">
                 <div class="thumb">
-                  <img src="" alt="Capa do vídeo: Trabalho de chão básico" />
+                  <img src="./img/img8.jpg" alt="Capa do vídeo: Trabalho de chão básico" />
                   <span class="play" aria-hidden="true">&#9654;</span>
                 </div>
                 <strong>Trabalho de chão básico</strong>
@@ -345,10 +334,9 @@
               </button>
             </div>
             <div class="vcard">
-              <!-- href = link do vídeo no YouTube | src = imagem da capa (caminho em img/ ou link) -->
-              <a class="vid" href="" target="_blank" rel="noopener">
+              <a class="vid" href="https://youtu.be/-I5CTGc93mk?si=vP_lNmBfATGc8BKn" target="_blank" rel="noopener">
                 <div class="thumb">
-                  <img src="" alt="Capa do vídeo: Fluxo e improviso" />
+                  <img src="./img/img9.jpg" alt="Capa do vídeo: Fluxo e improviso" />
                   <span class="play" aria-hidden="true">&#9654;</span>
                 </div>
                 <strong>Fluxo e improviso</strong>
@@ -360,13 +348,11 @@
             </div>
           </div>
 
-          <!-- ===== VÍDEOS: K-pop ===== -->
           <div class="vgrid" id="videos_kpop" hidden>
             <div class="vcard">
-              <!-- href = link do vídeo no YouTube | src = imagem da capa (caminho em img/ ou link) -->
-              <a class="vid" href="" target="_blank" rel="noopener">
+              <a class="vid" href="https://youtu.be/iegHutnUoa0?si=n7o5R8GsB1XmHjRV" target="_blank" rel="noopener">
                 <div class="thumb">
-                  <img src="" alt="Capa do vídeo: Aquecimento para coreografias" />
+                  <img src="./img/img10.jpg" alt="Capa do vídeo: Aquecimento para coreografias" />
                   <span class="play" aria-hidden="true">&#9654;</span>
                 </div>
                 <strong>Aquecimento para coreografias</strong>
@@ -377,10 +363,9 @@
               </button>
             </div>
             <div class="vcard">
-              <!-- href = link do vídeo no YouTube | src = imagem da capa (caminho em img/ ou link) -->
-              <a class="vid" href="" target="_blank" rel="noopener">
+              <a class="vid" href="https://youtu.be/N6t8hwKp71g?si=aXDNTjNl_c7kqSsO" target="_blank" rel="noopener">
                 <div class="thumb">
-                  <img src="" alt="Capa do vídeo: Contagem e precisão" />
+                  <img src="./img/img11.jpg" alt="Capa do vídeo: Contagem e precisão" />
                   <span class="play" aria-hidden="true">&#9654;</span>
                 </div>
                 <strong>Contagem e precisão</strong>
@@ -391,10 +376,9 @@
               </button>
             </div>
             <div class="vcard">
-              <!-- href = link do vídeo no YouTube | src = imagem da capa (caminho em img/ ou link) -->
-              <a class="vid" href="" target="_blank" rel="noopener">
+              <a class="vid" href="https://youtu.be/TZA5ajIjxFk?si=tqQwNnjOXMExOAXA" target="_blank" rel="noopener">
                 <div class="thumb">
-                  <img src="" alt="Capa do vídeo: Aprenda uma coreografia em 4 passos" />
+                  <img src="./img/img12.jpg" alt="Capa do vídeo: Aprenda uma coreografia em poucos passos" />
                   <span class="play" aria-hidden="true">&#9654;</span>
                 </div>
                 <strong>Aprenda uma coreografia em 4 passos</strong>
@@ -406,13 +390,11 @@
             </div>
           </div>
 
-          <!-- ===== VÍDEOS: Outro ===== -->
           <div class="vgrid" id="videos_outro" hidden>
             <div class="vcard">
-              <!-- href = link do vídeo no YouTube | src = imagem da capa (caminho em img/ ou link) -->
-              <a class="vid" href="" target="_blank" rel="noopener">
+              <a class="vid" href="https://youtu.be/Htv9kT6JhKs?si=3csaLHpfcGMV-rty" target="_blank" rel="noopener">
                 <div class="thumb">
-                  <img src="" alt="Capa do vídeo: Aquecimento geral para dançar" />
+                  <img src="./img/img13.jpg" alt="Capa do vídeo: Aquecimento geral para dançar" />
                   <span class="play" aria-hidden="true">&#9654;</span>
                 </div>
                 <strong>Aquecimento geral para dançar</strong>
@@ -423,10 +405,9 @@
               </button>
             </div>
             <div class="vcard">
-              <!-- href = link do vídeo no YouTube | src = imagem da capa (caminho em img/ ou link) -->
-              <a class="vid" href="" target="_blank" rel="noopener">
+              <a class="vid" href="https://youtu.be/2_7gRt38n9o?si=pVH_BMQU8HGF2AGT" target="_blank" rel="noopener">
                 <div class="thumb">
-                  <img src="" alt="Capa do vídeo: Consciência corporal" />
+                  <img src="./img/img14.jpg" alt="Capa do vídeo: Consciência corporal" />
                   <span class="play" aria-hidden="true">&#9654;</span>
                 </div>
                 <strong>Consciência corporal</strong>
@@ -437,10 +418,9 @@
               </button>
             </div>
             <div class="vcard">
-              <!-- href = link do vídeo no YouTube | src = imagem da capa (caminho em img/ ou link) -->
-              <a class="vid" href="" target="_blank" rel="noopener">
+              <a class="vid" href="https://youtu.be/nHZmIW6l4FM?si=b5luWHfAegC2MFcc" target="_blank" rel="noopener">
                 <div class="thumb">
-                  <img src="" alt="Capa do vídeo: Criando seus primeiros movimentos" />
+                  <img src="./img/img15.jpg" alt="Capa do vídeo: Criando seus primeiros movimentos" />
                   <span class="play" aria-hidden="true">&#9654;</span>
                 </div>
                 <strong>Criando seus primeiros movimentos</strong>
@@ -454,7 +434,7 @@
         </section>
       </div>
 
-      <!-- CHAMADA FINAL -->
+
       <div class="final">
         <h2>Descubra a sua própria linha</h2>
         <p>
@@ -464,7 +444,7 @@
         <a class="pill solid" href="cadastro.html">Criar minha conta</a>
       </div>
 
-      <!-- RODAPÉ (estilo em css/base.css) -->
+      <!-- RODAPÉ -->
       <footer>
         <span>© 2026 Chumseon Space</span
         ><span>Projeto Individual SPTech</span>
@@ -473,7 +453,6 @@
 
     <div class="toast" id="div_aviso" role="status"></div>
 
-    <!-- JS (a ordem importa): dados.js -> app.js -> arquivo da página (que chama iniciarPagina no final) -->
     <script src="js/dados.js"></script>
     <script src="js/app.js"></script>
     <script src="js/home.js"></script>
