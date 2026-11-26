@@ -1,15 +1,4 @@
-/* ==========================================================================
-   base.css  |  estilos COMPARTILHADOS por todas as páginas
-   Usado em: index.html, cadastro.html, login.html e dashboard.html
-   (cada página carrega este arquivo primeiro e depois o seu CSS próprio)
-   Tem: cores e tema, animações, preloader, navbar, botões, abas,
-        formulários (chips), toast (aviso) e rodapé.
-   DICA: para trocar a cor de destaque do site, mude --accent na seção 1.
-   ========================================================================== */
 
-/* 1. VARIÁVEIS: cores, fontes e tema claro/escuro.
-      O js/app.js troca o atributo data-theme da tag <html> ("dark" ou "light"),
-      e é isso que ativa o bloco :root[data-theme=light] mais abaixo. */
 @property --accent {
   syntax: "<color>";
   inherits: true;
@@ -48,7 +37,7 @@
   color-scheme: light;
 }
 
-/* 2. BASE: regras gerais de reset e de elementos comuns */
+
 html {
   scroll-padding-top: env(safe-area-inset-top, 0px);
   scroll-behavior: smooth;
@@ -88,9 +77,7 @@ button {
   padding: 0 20px;
 }
 
-/* 3. ANIMAÇÕES
-      A classe .in (usada nos HTMLs) faz o elemento subir e aparecer.
-      A classe .rdy é colocada no <body> pelo js/app.js quando o preloader termina. */
+
 @keyframes up {
   from {
     opacity: 0;
@@ -123,7 +110,7 @@ body:not(.rdy) .in {
   animation: up 0.9s var(--d, 0s) both;
 }
 
-/* PRELOADER: tela de abertura */
+/* PRELOADER */
 
 #pre {
   position: fixed;
@@ -174,9 +161,7 @@ body:not(.rdy) .in {
   color: var(--muted);
 }
 
-/* 5. NAVBAR e BOTÕES: <nav class="nav"> aparece em todas as páginas.
-      Os links são criados pela função navr() do js/app.js.
-      A navbar da home "entra" no hero porque tem margem negativa (linha abaixo). */
+
 .nav {
   position: relative;
   z-index: 6;
@@ -313,21 +298,20 @@ body:not(.rdy) .in {
   align-items: center;
 }
 
-/* 6. COMPONENTES COMPARTILHADOS */
-/* linha de botões (hero e cronômetro usam) */
+
 .row {
   display: flex;
   gap: 14px;
   flex-wrap: wrap;
 }
-/* título de seção (h2 class="t") */
+
 h2.t {
   font: italic 800 clamp(28px, 4vw, 44px)/1.1 var(--f);
   margin: 0 0 8px;
   color: var(--hi);
   letter-spacing: -0.01em;
 }
-/* abas/botões de filtro (abas de estilo na home e filtro 7/30 dias no dashboard) */
+
 .tabs {
   display: flex;
   gap: 8px;
@@ -350,7 +334,7 @@ h2.t {
   color: var(--onac);
   font-weight: 600;
 }
-/* painel (cartão de formulário; usado em cadastro e login) */
+
 .panel {
   background: var(--panel);
   border: 1px solid var(--line);
@@ -364,7 +348,7 @@ h2.t {
   border-radius: 24px;
   padding: 28px;
 }
-/* campos de escolha em formato de "chips" (cadastro) + mensagens de erro/dica */
+
 fieldset {
   border: 0;
   padding: 0;
@@ -427,7 +411,7 @@ legend {
   color: var(--hi);
   border-bottom: 1px solid var(--accent);
 }
-/* toast: aviso que aparece embaixo da tela (<div id="toast"> e função toast() do js/app.js) */
+
 .toast {
   position: fixed;
   left: 50%;

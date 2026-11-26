@@ -7,28 +7,22 @@
       content="width=device-width, initial-scale=1, viewport-fit=cover"
     />
     <title>Dashboard | Chumseon Space</title>
-    <!-- Fontes do Google: Montserrat (textos e títulos) e Noto Sans KR (as letras coreanas 춤선) -->
+    
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
       href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,400;0,500;0,600;1,800;1,900&family=Noto+Sans+KR:wght@300;700&display=swap"
       rel="stylesheet"
     />
-    <!-- Biblioteca de gráficos Chart.js (CDN) -->
+
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.min.js"></script>
-    <!-- CSS: base.css vale para todas as páginas; o segundo é só desta página -->
+
     <link rel="stylesheet" href="css/base.css" />
     <link rel="stylesheet" href="css/dashboard.css" />
   </head>
-  <!-- data-page diz ao CSS e ao js/app.js em qual página estamos -->
+
   <body data-page="dashboard">
-    <!--
-  dashboard.html  |  PAINEL (só para quem fez login: o js/dashboard.js manda para login.html se não houver sessão). Cada KPI/gráfico vem de um SELECT de banco/chumseon_space.sql
-  CSS: css/base.css + css/dashboard.css
-  JS : js/dados.js + js/app.js + js/dashboard.js
-  Os gráficos usam a biblioteca Chart.js (carregada no <head> abaixo, precisa de internet)
--->
-    <!-- NAVBAR: os links e botões de conta são montados pelo js/app.js (função montarNavbar). Estilo em css/base.css, seção 5 -->
+
     <nav class="nav in" id="nav_principal" aria-label="Principal">
       <a class="brand" href="index.html"
         ><span class="disc" lang="ko" aria-hidden="true">춤</span
@@ -59,9 +53,7 @@
       <div class="dash">
         <h1 id="titulo_painel">Meu painel</h1>
         <p class="sub" id="p_subtitulo"></p>
-        <!-- MEU PAINEL: tudo aqui muda quando o usuário ensaia, ou assiste vídeo (js/dashboard.js, função atualizarPainel) -->
         <div class="mine">
-          <!-- 1) CRONÔMETRO E META DA SEMANA (não dependem do filtro 7/30 dias) -->
           <div class="grid2">
             <div class="cbox">
               <h3>Cronômetro de ensaio</h3>
@@ -105,8 +97,6 @@
               <p id="p_meta_msg" style="margin: 0"></p>
             </div>
           </div>
-
-          <!-- 2) NÚMEROS DO PERÍODO: o filtro 7/30 dias fica junto do que ele muda -->
           <div class="bar2">
             <span>Mostrar os últimos</span>
             <div class="tabs" id="div_periodo" style="margin: 0"></div>
@@ -124,7 +114,6 @@
             para ver o painel mudar.
           </p>
 
-          <!-- 3) GRÁFICOS -->
           <p class="err" id="p_erro_graficos" hidden>
             Os gráficos não carregaram. Verifique a conexão com a internet.
           </p>
@@ -132,7 +121,6 @@
             <div class="cbox w">
               <h3>Meu tempo de ensaio</h3>
               <p id="p_semana_texto">Minutos por dia</p>
-              <!-- filtro de semana: 0 = últimos 7 dias, 1 = semana anterior... -->
               <div class="filtro">
                 <label for="select_semana">Ver semana:</label>
                 <select id="select_semana" onchange="mudarSemana()">
@@ -160,7 +148,6 @@
     </footer>
     <div class="toast" id="div_aviso" role="status"></div>
 
-    <!-- JS (a ordem importa): dados.js -> app.js -> arquivo da página (que chama iniciarPagina no final) -->
     <script src="js/dados.js"></script>
     <script src="js/app.js"></script>
     <script src="js/dashboard.js"></script>

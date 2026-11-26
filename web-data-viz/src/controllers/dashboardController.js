@@ -1,6 +1,5 @@
 var dashboardModel = require("../models/dashboardModel");
 
-// GET /dashboard/pessoal/:idUsuario/:periodo  (periodo = 7 ou 30 dias)
 function pessoal(req, res) {
     var idUsuario = Number(req.params.idUsuario);
     var periodo = Number(req.params.periodo);
@@ -45,8 +44,6 @@ function pessoal(req, res) {
         });
 }
 
-// GET /dashboard/semana/:idUsuario/:inicio/:fim  (datas no formato 2026-11-25)
-// devolve os minutos de cada dia entre as duas datas (gráfico "Meu tempo de ensaio")
 function semana(req, res) {
     var idUsuario = Number(req.params.idUsuario);
     var inicio = req.params.inicio;
@@ -56,7 +53,7 @@ function semana(req, res) {
         res.status(400).send("idUsuario inválido!");
         return;
     }
-    // uma data como 2026-11-25 tem sempre 10 caracteres
+
     if (inicio.length != 10 || fim.length != 10) {
         res.status(400).send("As datas devem estar no formato AAAA-MM-DD!");
         return;

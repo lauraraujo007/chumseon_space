@@ -1,9 +1,3 @@
-/* ==========================================================================
-   sobre.js  |  só de sobre.html
-   Monta a linha do tempo "Como o site foi construído" com um vetor e um for.
-   Ligação com o HTML (id): div_etapas
-   ========================================================================== */
-
 let etapa_titulo = [
   'A ideia',
   'O design',
@@ -29,6 +23,5 @@ function desenharEtapas() {
   div_etapas.innerHTML = html;
 }
 
-/* ---------- INÍCIO ---------- */
 iniciarPagina('sobre');
 desenharEtapas();

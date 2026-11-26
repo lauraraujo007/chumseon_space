@@ -19,26 +19,39 @@
   </head>
 
   <body data-page="cadastro">
-    
-
     <main>
       <div class="auth empilhado">
         <div>
           <div class="ko" lang="ko" aria-hidden="true">춤선</div>
           <h1>Crie sua conta</h1>
-          <p class="lead">
-            Conte como a dança aparece na sua vida.
-          </p>
+          <p class="lead">Conte como a dança aparece na sua vida.</p>
         </div>
-        <!-- FORMULÁRIO DE CADASTRO: o onsubmit chama cadastrar() (js/cadastro.js); o "return false" só impede a página de recarregar. Os botões de escolha do estilo (div_opcoes_estilo) são criados por ele -->
-        <form class="panel2" id="form_cadastro" onsubmit="cadastrar(); return false;" novalidate>
+        <form
+          class="panel2"
+          id="form_cadastro"
+          onsubmit="
+            cadastrar();
+            return false;
+          "
+          novalidate
+        >
           <div class="campos">
-            <label class="f">Nome<input id="input_nome" name="nome" autocomplete="name" /></label>
             <label class="f"
-              >E-mail<input id="input_email" name="email" type="email" autocomplete="email"
+              >Nome<input id="input_nome" name="nome" autocomplete="name"
             /></label>
             <label class="f"
-              >Senha (mínimo 6 caracteres)<input id="input_senha" name="senha" type="password" autocomplete="new-password"
+              >E-mail<input
+                id="input_email"
+                name="email"
+                type="email"
+                autocomplete="email"
+            /></label>
+            <label class="f"
+              >Senha (mínimo 6 caracteres)<input
+                id="input_senha"
+                name="senha"
+                type="password"
+                autocomplete="new-password"
             /></label>
           </div>
           <fieldset>

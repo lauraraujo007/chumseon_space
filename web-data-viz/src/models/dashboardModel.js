@@ -30,7 +30,6 @@ function metaSemana(idUsuario) {
     return database.executar(instrucaoSql, [idUsuario], true);
 }
 
-// minutos por dia entre duas datas (formato 2026-11-25), usado no filtro de semana do gráfico
 function minutosPorDia(idUsuario, dataInicio, dataFim) {
     var instrucaoSql = `
         SELECT DATE_FORMAT(dtEnsaio, '%Y-%m-%d') AS dia, SUM(minutos) AS minutos

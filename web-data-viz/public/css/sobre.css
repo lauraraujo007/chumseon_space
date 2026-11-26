@@ -1,13 +1,4 @@
-/* ==========================================================================
-   sobre.css  |  estilos SÓ de sobre.html
-   Depende de css/base.css (.panel, h2.t, variáveis de cor e fonte)
-   Ligações com o HTML:
-     .sobre .hero2 .ko ... título com o 춤선 grande em contorno
-     .cols ............... os três cartões (tema, nome, sobre mim)
-     .info ............... lista Nome/Curso/... (dl)
-     .edite .............. trechos para a Laura editar
-     .etapas ............. linha do tempo criada pelo js/sobre.js (div_etapas)
-   ========================================================================== */
+
 .sobre {
   max-width: 1100px;
   margin: 30px auto 0;

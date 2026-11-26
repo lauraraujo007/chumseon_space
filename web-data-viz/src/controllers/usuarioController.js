@@ -1,6 +1,5 @@
 var usuarioModel = require("../models/usuarioModel");
 
-// Traduz o erro do MySQL numa frase que dá para entender (aparece embaixo do formulário)
 function mensagemDeErro(erro) {
     var codigo = erro && erro.code;
     if (codigo == "ECONNREFUSED" || codigo == "ETIMEDOUT" || codigo == "ENOTFOUND") {
@@ -15,7 +14,6 @@ function mensagemDeErro(erro) {
     return "Erro no servidor: " + ((erro && (erro.sqlMessage || erro.message)) || erro);
 }
 
-// Valores aceitos pelos radios do cadastro (são os "codigo" da tabela estilo do banco)
 var ESTILOS = ["ballet", "hiphop", "contemporaneo", "kpop", "outro"];
 
 function autenticar(req, res) {
@@ -70,7 +68,6 @@ function cadastrar(req, res) {
         return;
     }
 
-    // 1) vê se o e-mail já existe  2) insere o usuário  3) cria o perfil 1:1
     usuarioModel.buscarPorEmail(email)
         .then(function (existentes) {
             if (existentes.length > 0) {

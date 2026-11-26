@@ -55,7 +55,7 @@
   margin: 0;
 }
 
-/* Nome, E-mail e Senha lado a lado (3 colunas iguais) */
+
 .campos {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
@@ -65,7 +65,7 @@
   margin: 0;
 }
 
-/* botão "Criar conta" e "Já tem conta?" na mesma linha */
+
 .rodape-form {
   display: flex;
   align-items: center;

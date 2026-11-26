@@ -1,14 +1,4 @@
-/* ==========================================================================
-   home.css  |  estilos SÓ da página index.html (home)
-   Depende de css/base.css (variáveis, navbar, botões, abas, chips)
-   Ligações com o HTML:
-     .stage / .mark / .lines / .hero / .vibes ....... <header class="stage"> do hero
-     .cards / .sc ................................. <section id="estilos"> (cards de estilo)
-     .vgrid / .vcard / .vid / .thumb ............... <section id="dicas"> (vídeos)
-     .final ....................................... chamada final para criar conta
-   ========================================================================== */
 
-/* HERO: o "palco" arredondado. A navbar fica por cima dele (ver base.css, seção 5) */
 .stage {
   margin: 0 auto;
   max-width: 1280px;
@@ -195,7 +185,7 @@
   max-width: 24ch;
 }
 
-/* SEÇÕES: cabeçalho e cards dos estilos (cada card usa --c, a cor do estilo, definida inline no HTML) */
+
 section {
   padding: 84px 0 0;
 }
@@ -259,8 +249,7 @@ section {
   opacity: 0.8;
 }
 
-/* FOTO DO CARD: cobre o card inteiro, fica atrás das linhas (svg) e do texto.
-   object-position escolhe qual parte da foto aparece quando ela é cortada. */
+
 .sc .foto {
   position: absolute;
   inset: 0;
@@ -295,7 +284,7 @@ section {
   font-size: 14px;
 }
 
-/* VÍDEOS: grade de dicas. Cada vídeo é um .vcard com a miniatura (.thumb) e o botão .ok */
+
 .vgrid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
@@ -381,7 +370,7 @@ section {
   color: var(--accent);
 }
 
-/* CHAMADA FINAL: o 춤선 grande ao fundo é o ::before */
+
 .final {
   margin: 90px auto 0;
   max-width: 1240px;

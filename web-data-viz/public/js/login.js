@@ -1,11 +1,4 @@
-/* ==========================================================================
-   login.js  |  só de login.html
-   Depende de: dados.js (pegarPrimeiroNome) e app.js (guardarMensagem). Fala com a API.
-   Ligações com o HTML (ids): form_login, input_email, input_senha, p_erro_login.
-   Conta de teste: demo@chumseon.space  /  senha 123456
-   ========================================================================== */
 
-/* botão "Entrar": POST /usuarios/autenticar (a API faz o SELECT ... WHERE email = ? AND senha = ?) */
 function entrar() {
   let email = input_email.value.trim().toLowerCase();
   let senha = input_senha.value;
@@ -21,7 +14,6 @@ function entrar() {
       if (resposta.ok) {
         resposta.json().then(function (json) {
           p_erro_login.innerHTML = '';
-          // guarda quem entrou (sessão do navegador)
           sessionStorage.ID_USUARIO = json.idUsuario;
           sessionStorage.NOME_USUARIO = json.nome;
           sessionStorage.EMAIL_USUARIO = json.email;
@@ -45,10 +37,8 @@ function entrar() {
   }
 }
 
-/* ---------- INÍCIO ---------- */
 iniciarPagina('login');
 
-// se veio do cadastro, já preenche o e-mail
 let emailCadastrado = sessionStorage.EMAIL_CADASTRADO;
 if (emailCadastrado != undefined) {
   input_email.value = emailCadastrado;

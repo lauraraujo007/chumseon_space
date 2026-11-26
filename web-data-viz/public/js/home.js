@@ -1,5 +1,3 @@
-
-/* ENERGIAS: nome, estilo que combina e frase (vetores com a mesma posição) */
 let vibe_nome = ['Leveza', 'Atitude', 'Fluidez', 'Performance'];
 let vibe_estilo = ['ballet', 'hiphop', 'contemporaneo', 'kpop'];
 let vibe_frase = [
@@ -9,7 +7,7 @@ let vibe_frase = [
   'A vibe pede expressão facial, sincronia e energia de palco'
 ];
 
-/* ---------- ENERGIA DO DIA ---------- */
+
 function desenharEnergias() {
   let html = '';
   for (let i = 0; i < vibe_nome.length; i++) {
@@ -24,21 +22,19 @@ function escolherEnergia(i) {
   p_sugestao.innerHTML = '<b>Hoje combina com ' + nomeEstilo + '.</b> ' + vibe_frase[i] + ' <a href="#dicas"> <br> Ver dicas em vídeo</a>';
 }
 
-/* troca o estilo (cor do site + vídeos). Usada pelas abas, cards e energias */
+
 function trocarEstilo(id) {
   aplicarEstilo(id);
 }
 
-/* clicar num card de estilo escolhe o estilo e rola até os vídeos */
+
 function escolherEstiloCard(id) {
   trocarEstilo(id);
-  // NOVO: rola a página até a seção de vídeos (id="dicas")
+  
   dicas.scrollIntoView();
 }
 
-/* ---------- VÍDEOS ----------
-   Os vídeos ficam no index.html (um grupo por estilo, id="videos_<estilo>").
-   Aqui só mostramos o grupo do estilo escolhido e escondemos os outros. */
+
 function desenharVideos() {
   let k = estiloAtual;
   if (k == null) {
@@ -54,7 +50,7 @@ function desenharVideos() {
   p_dica_estilo.innerHTML = 'Dicas para quem quer treinar ' + estilo_nome[estilo_id.indexOf(k)] + '.';
 }
 
-/* v = número do vídeo (1 a 15, o mesmo idVideo da tabela video no banco) */
+
 function marcarAssistido(v) {
   if (logado == -1) {
     mostrarAviso('Entre na sua conta para registrar suas atividades.');

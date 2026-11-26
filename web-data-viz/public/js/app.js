@@ -11,7 +11,7 @@ function iniciarPagina(pagina) {
   carregarTemaSalvo();
   identificarLogado();
   montarNavbar();
-  // mostrarMensagemGuardada();
+  
 
   if (logado != -1) {
     aplicarEstilo(sessionStorage.ESTILO_USUARIO);
@@ -26,7 +26,7 @@ function iniciarPagina(pagina) {
 
 function aplicarTema(tema, guardar) {
   document.documentElement.setAttribute('data-theme', tema);
-  // login.html e cadastro.html não têm o botão de tema, então só mexe nele se existir
+  
   if (document.getElementById('btn_tema') != null) {
     if (tema == 'dark') {
       btn_tema.innerHTML = '☀';
@@ -59,7 +59,7 @@ function trocarTema() {
   } else {
     aplicarTema('dark', true);
   }
-  // os gráficos têm cores próprias, então o painel precisa desenhar de novo
+  
   if (paginaAtual == 'dashboard') {
     atualizarPainel();
   }
@@ -99,7 +99,7 @@ function esconderPreloader() {
 }
 
 
-/* ---------- AVISO (toast): mensagem rápida embaixo da tela ---------- */
+/* -- AVISO (toast) -- */
 function mostrarAviso(mensagem) {
   div_aviso.innerHTML = mensagem
   div_aviso.className = 'toast on'
@@ -135,14 +135,12 @@ function aplicarEstilo(id) {
   }
 }
 
-/* ---------- NAVBAR ----------
-   Os links ficam em vetores e um for monta o HTML. "Dashboard" só aparece para quem está logado. A página atual ganha a classe "on" (linha embaixo). */
+
 let menu_link = ['index.html', 'index.html#estilos', 'index.html#dicas', 'dashboard.html', 'sobre.html'];
 let menu_nome = ['Home', 'Estilos', 'Dicas', 'Dashboard', 'Sobre'];
 let menu_pagina = ['home', '', '', 'dashboard', 'sobre'];
 
 function montarNavbar() {
-  // login.html e cadastro.html não têm navbar
   if (document.getElementById('div_links') == null) {
     return;
   }

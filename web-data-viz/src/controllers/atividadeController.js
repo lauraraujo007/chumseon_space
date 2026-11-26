@@ -2,7 +2,7 @@ var atividadeModel = require("../models/atividadeModel");
 
 var ESTILOS = ["ballet", "hiphop", "contemporaneo", "kpop", "outro"];
 
-// POST /ensaios/registrar
+
 function registrarEnsaio(req, res) {
     var idUsuario = Number(req.body.idUsuarioServer);
     var estilo = req.body.estiloServer;
@@ -31,7 +31,6 @@ function registrarEnsaio(req, res) {
         });
 }
 
-// POST /videos/assistir
 function registrarAssistido(req, res) {
     var idUsuario = Number(req.body.idUsuarioServer);
     var idVideo = Number(req.body.idVideoServer);
@@ -47,7 +46,6 @@ function registrarAssistido(req, res) {
 
     atividadeModel.registrarAssistido(idUsuario, idVideo)
         .then(function (resultado) {
-            // affectedRows 0 = a pessoa já tinha assistido esse vídeo
             res.status(201).json({ novo: resultado.affectedRows == 1 });
         })
         .catch(function (erro) {
