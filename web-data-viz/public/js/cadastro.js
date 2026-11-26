@@ -1,4 +1,3 @@
-
 function montarOpcoes(destino, nomeCampo, ids, nomes) {
   let html = '<div class="chips" role="radiogroup">';
   for (let i = 0; i < ids.length; i++) {
@@ -8,13 +7,13 @@ function montarOpcoes(destino, nomeCampo, ids, nomes) {
   destino.innerHTML = html;
 }
 
-
 function cadastrar() {
   let nome = input_nome.value.trim();
   let email = input_email.value.trim().toLowerCase();
   let senha = input_senha.value;
   let estilo = form_cadastro.estilo.value;
-
+  let tempo = form_cadastro.tempo.value;
+  let sentido = form_cadastro.sentido.value;
 
   let emailValido = email.includes('@') && email.includes('.') && !email.includes(' ') && !email.startsWith('@') && !email.endsWith('.');
 
@@ -27,6 +26,10 @@ function cadastrar() {
     erro = 'A senha precisa ter pelo menos 6 caracteres.';
   } else if (estilo == '') {
     erro = 'Escolha o seu estilo.';
+  } else if (tempo == '') {
+    erro = 'Conte qual é o seu contato com a dança.';
+  } else if (sentido == '') {
+    erro = 'Escolha o que a dança representa para você.';
   }
 
   p_erro_cadastro.innerHTML = erro;
@@ -39,7 +42,9 @@ function cadastrar() {
         nomeServer: nome,
         emailServer: email,
         senhaServer: senha,
-        estiloServer: estilo
+        estiloServer: estilo,
+        tempoServer: tempo,
+        sentidoServer: sentido
       })
     }).then(function (resposta) {
       if (resposta.ok) {
@@ -59,6 +64,7 @@ function cadastrar() {
   }
 }
 
-
 montarOpcoes(div_opcoes_estilo, 'estilo', estilo_id, estilo_nome);
+montarOpcoes(div_opcoes_tempo, 'tempo', tempo_id, tempo_nome);
+montarOpcoes(div_opcoes_sentido, 'sentido', sentido_id, sentido_nome);
 iniciarPagina('cadastro');

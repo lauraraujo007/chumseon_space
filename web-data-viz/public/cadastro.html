@@ -19,44 +19,38 @@
   </head>
 
   <body data-page="cadastro">
+    
+
     <main>
       <div class="auth empilhado">
         <div>
           <div class="ko" lang="ko" aria-hidden="true">춤선</div>
           <h1>Crie sua conta</h1>
-          <p class="lead">Conte como a dança aparece na sua vida.</p>
+          <p class="lead">
+            Conte como a dança aparece na sua vida.
+          </p>
         </div>
-        <form
-          class="panel2"
-          id="form_cadastro"
-          onsubmit="
-            cadastrar();
-            return false;
-          "
-          novalidate
-        >
+        <form class="panel2" id="form_cadastro" onsubmit="cadastrar(); return false;" novalidate>
           <div class="campos">
+            <label class="f">Nome<input id="input_nome" name="nome" autocomplete="name" /></label>
             <label class="f"
-              >Nome<input id="input_nome" name="nome" autocomplete="name"
+              >E-mail<input id="input_email" name="email" type="email" autocomplete="email"
             /></label>
             <label class="f"
-              >E-mail<input
-                id="input_email"
-                name="email"
-                type="email"
-                autocomplete="email"
-            /></label>
-            <label class="f"
-              >Senha (mínimo 6 caracteres)<input
-                id="input_senha"
-                name="senha"
-                type="password"
-                autocomplete="new-password"
+              >Senha (mínimo 6 caracteres)<input id="input_senha" name="senha" type="password" autocomplete="new-password"
             /></label>
           </div>
           <fieldset>
             <legend>Estilo que você mais pratica ou quer praticar</legend>
             <div id="div_opcoes_estilo"></div>
+          </fieldset>
+          <fieldset>
+            <legend>Seu contato com a dança</legend>
+            <div id="div_opcoes_tempo"></div>
+          </fieldset>
+          <fieldset>
+            <legend>O que a dança representa para você</legend>
+            <div id="div_opcoes_sentido"></div>
           </fieldset>
           <p class="err" id="p_erro_cadastro" role="alert"></p>
           <div class="rodape-form">

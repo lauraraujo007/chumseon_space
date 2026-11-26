@@ -16,16 +16,15 @@ function buscarPorEmail(email) {
     return database.executar(instrucaoSql, [email]);
 }
 
-function cadastrar(nome, email, senha, estilo) {
+function cadastrar(nome, email, senha, estilo, tempo, sentido) {
     var instrucaoSql = `
-        INSERT INTO usuario (nome, email, senha, fkEstilo)
-        SELECT ?, ?, ?, e.idEstilo
-        FROM estilo e
-        WHERE e.codigo = ?;
+        INSERT INTO usuario (nome, email, senha, fkEstilo, fkTempo, fkSentido)
+        SELECT ?, ?, ?, e.idEstilo, t.idTempo, s.idSentido
+        FROM estilo e, tempo_pratica t, sentido s
+        WHERE e.codigo = ? AND t.codigo = ? AND s.codigo = ?;
     `;
-    return database.executar(instrucaoSql, [nome, email, senha, estilo]);
+    return database.executar(instrucaoSql, [nome, email, senha, estilo, tempo, sentido]);
 }
-
 function criarPerfil(idUsuario) {
     var instrucaoSql = `INSERT INTO perfil_usuario (idUsuario) VALUES (?);`;
     return database.executar(instrucaoSql, [idUsuario]);
