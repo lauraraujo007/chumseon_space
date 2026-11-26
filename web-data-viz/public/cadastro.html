@@ -22,41 +22,34 @@
     
 
     <main>
-      <div class="auth">
+      <div class="auth empilhado">
         <div>
           <div class="ko" lang="ko" aria-hidden="true">춤선</div>
           <h1>Crie sua conta</h1>
           <p class="lead">
-            Conte como a dança aparece na sua vida. Suas respostas desenham o
-            painel da comunidade.
+            Conte como a dança aparece na sua vida.
           </p>
         </div>
-    </main>
-        <!-- FORMULÁRIO DE CADASTRO: o onsubmit chama cadastrar() (js/cadastro.js); o "return false" só impede a página de recarregar. Os botões de escolha (div_opcoes_estilo, div_opcoes_tempo, div_opcoes_sentido) são criados por ele -->
-    <main>
+        <!-- FORMULÁRIO DE CADASTRO: o onsubmit chama cadastrar() (js/cadastro.js); o "return false" só impede a página de recarregar. Os botões de escolha do estilo (div_opcoes_estilo) são criados por ele -->
         <form class="panel2" id="form_cadastro" onsubmit="cadastrar(); return false;" novalidate>
-          <label class="f">Nome<input id="input_nome" name="nome" autocomplete="name" /></label>
-          <label class="f"
-            >E-mail<input id="input_email" name="email" type="email" autocomplete="email"
-          /></label>
-          <label class="f"
-            >Senha (mínimo 6 caracteres)<input id="input_senha" name="senha" type="password" autocomplete="new-password"
-          /></label>
+          <div class="campos">
+            <label class="f">Nome<input id="input_nome" name="nome" autocomplete="name" /></label>
+            <label class="f"
+              >E-mail<input id="input_email" name="email" type="email" autocomplete="email"
+            /></label>
+            <label class="f"
+              >Senha (mínimo 6 caracteres)<input id="input_senha" name="senha" type="password" autocomplete="new-password"
+            /></label>
+          </div>
           <fieldset>
             <legend>Estilo que você mais pratica ou quer praticar</legend>
             <div id="div_opcoes_estilo"></div>
           </fieldset>
-          <fieldset>
-            <legend>Seu contato com a dança</legend>
-            <div id="div_opcoes_tempo"></div>
-          </fieldset>
-          <fieldset>
-            <legend>O que a dança representa para você</legend>
-            <div id="div_opcoes_sentido"></div>
-          </fieldset>
           <p class="err" id="p_erro_cadastro" role="alert"></p>
-          <button class="pill solid" type="submit">Criar conta</button>
-          <p class="hint">Já tem conta? <a href="login.html">Entrar</a></p>
+          <div class="rodape-form">
+            <button class="pill solid" type="submit">Criar conta</button>
+            <p class="hint">Já tem conta? <a href="login.html">Entrar</a></p>
+          </div>
         </form>
       </div>
     </main>

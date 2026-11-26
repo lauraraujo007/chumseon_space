@@ -1,9 +1,8 @@
-
 DROP DATABASE IF EXISTS chumseon_space;
 CREATE DATABASE chumseon_space CHARACTER SET utf8mb4;
 USE chumseon_space;
 
--- ------------------------- TABELAS DE APOIO -------------------------
+-- ------------------------- TABELA DE APOIO -------------------------
 CREATE TABLE estilo (
   idEstilo INT          NOT NULL AUTO_INCREMENT,
   codigo   VARCHAR(20)  NOT NULL,
@@ -11,22 +10,6 @@ CREATE TABLE estilo (
   cor      CHAR(7)      NOT NULL,
   PRIMARY KEY (idEstilo),
   UNIQUE KEY uq_estilo_codigo (codigo)
-) ENGINE=InnoDB;
-
-CREATE TABLE tempo_pratica (
-  idTempo   INT          NOT NULL AUTO_INCREMENT,
-  codigo    VARCHAR(20)  NOT NULL,
-  descricao VARCHAR(40)  NOT NULL,
-  PRIMARY KEY (idTempo),
-  UNIQUE KEY uq_tempo_codigo (codigo)
-) ENGINE=InnoDB;
-
-CREATE TABLE sentido (
-  idSentido INT          NOT NULL AUTO_INCREMENT,
-  codigo    VARCHAR(20)  NOT NULL,
-  descricao VARCHAR(40)  NOT NULL,
-  PRIMARY KEY (idSentido),
-  UNIQUE KEY uq_sentido_codigo (codigo)
 ) ENGINE=InnoDB;
 
 -- --------------------------- USUÁRIO (1:N) ---------------------------
@@ -37,13 +20,9 @@ CREATE TABLE usuario (
   senha      VARCHAR(60)  NOT NULL,
   dtCadastro DATETIME     NOT NULL DEFAULT CURRENT_TIMESTAMP,
   fkEstilo   INT          NOT NULL,
-  fkTempo    INT          NOT NULL,
-  fkSentido  INT          NOT NULL,
   PRIMARY KEY (idUsuario),
   UNIQUE KEY uq_usuario_email (email),
-  CONSTRAINT fk_usuario_estilo  FOREIGN KEY (fkEstilo)  REFERENCES estilo (idEstilo),
-  CONSTRAINT fk_usuario_tempo   FOREIGN KEY (fkTempo)   REFERENCES tempo_pratica (idTempo),
-  CONSTRAINT fk_usuario_sentido FOREIGN KEY (fkSentido) REFERENCES sentido (idSentido)
+  CONSTRAINT fk_usuario_estilo FOREIGN KEY (fkEstilo) REFERENCES estilo (idEstilo)
 ) ENGINE=InnoDB;
 
 -- 1:1 com usuario: a PK da tabela é também a FK
@@ -61,7 +40,6 @@ CREATE TABLE video (
   idVideo   INT          NOT NULL AUTO_INCREMENT,
   titulo    VARCHAR(80)  NOT NULL,
   nivel     VARCHAR(20)  NOT NULL,
-  youtubeId VARCHAR(20)  NULL,           -- NULL = "vídeo em breve"
   fkEstilo  INT          NOT NULL,
   PRIMARY KEY (idVideo),
   CONSTRAINT fk_video_estilo FOREIGN KEY (fkEstilo) REFERENCES estilo (idEstilo)
@@ -100,54 +78,43 @@ INSERT INTO estilo (codigo, nome, cor) VALUES
 ('kpop',          'K-pop',              '#ff5fa2'),   -- 4
 ('outro',         'Outro',              '#9aa3a9');   -- 5
 
-INSERT INTO tempo_pratica (codigo, descricao) VALUES
-('curioso',  'Iniciante curioso'),            -- 1
-('infancia', 'Já pratiquei na infância'),     -- 2
-('pratica',  'Pratico atualmente');           -- 3
-
-INSERT INTO sentido (codigo, descricao) VALUES
-('emocao',   'Expressão emocional'),          -- 1
-('saude',    'Saúde e disciplina'),           -- 2
-('estresse', 'Desconexão do estresse'),       -- 3
-('arte',     'Arte e estética');              -- 4
-
--- 12 usuários (fkEstilo, fkTempo, fkSentido). O usuário 1 é a conta de teste.
-INSERT INTO usuario (nome, email, senha, dtCadastro, fkEstilo, fkTempo, fkSentido) VALUES
-('Conta demo',     'demo@chumseon.space', '123456', NOW(),                         3, 2, 1),
-('Ana Lima',       'ana@exemplo.com',     '123456', DATE_SUB(NOW(), INTERVAL 1 DAY),  1, 3, 4),
-('Bruno Souza',    'bruno@exemplo.com',   '123456', DATE_SUB(NOW(), INTERVAL 2 DAY),  2, 3, 3),
-('Carla Dias',     'carla@exemplo.com',   '123456', DATE_SUB(NOW(), INTERVAL 3 DAY),  3, 1, 1),
-('Diego Alves',    'diego@exemplo.com',   '123456', DATE_SUB(NOW(), INTERVAL 4 DAY),  4, 2, 3),
-('Eduarda Reis',   'edu@exemplo.com',     '123456', DATE_SUB(NOW(), INTERVAL 5 DAY),  2, 3, 2),
-('Felipe Costa',   'felipe@exemplo.com',  '123456', DATE_SUB(NOW(), INTERVAL 6 DAY),  3, 2, 1),
-('Gabi Nunes',     'gabi@exemplo.com',    '123456', DATE_SUB(NOW(), INTERVAL 8 DAY),  4, 1, 4),
-('Helena Prado',   'helena@exemplo.com',  '123456', DATE_SUB(NOW(), INTERVAL 9 DAY),  1, 2, 4),
-('Igor Martins',   'igor@exemplo.com',    '123456', DATE_SUB(NOW(), INTERVAL 10 DAY), 2, 1, 2),
-('Julia Faria',    'julia@exemplo.com',   '123456', DATE_SUB(NOW(), INTERVAL 11 DAY), 5, 3, 3),
-('Kaique Torres',  'kaique@exemplo.com',  '123456', DATE_SUB(NOW(), INTERVAL 12 DAY), 3, 3, 1);
+-- 12 usuários (fkEstilo). O usuário 1 é a conta de teste.
+INSERT INTO usuario (nome, email, senha, dtCadastro, fkEstilo) VALUES
+('Conta demo',     'demo@chumseon.space', '123456', NOW(),                         3),
+('Ana Lima',       'ana@exemplo.com',     '123456', DATE_SUB(NOW(), INTERVAL 1 DAY),  1),
+('Bruno Souza',    'bruno@exemplo.com',   '123456', DATE_SUB(NOW(), INTERVAL 2 DAY),  2),
+('Carla Dias',     'carla@exemplo.com',   '123456', DATE_SUB(NOW(), INTERVAL 3 DAY),  3),
+('Diego Alves',    'diego@exemplo.com',   '123456', DATE_SUB(NOW(), INTERVAL 4 DAY),  4),
+('Eduarda Reis',   'edu@exemplo.com',     '123456', DATE_SUB(NOW(), INTERVAL 5 DAY),  2),
+('Felipe Costa',   'felipe@exemplo.com',  '123456', DATE_SUB(NOW(), INTERVAL 6 DAY),  3),
+('Gabi Nunes',     'gabi@exemplo.com',    '123456', DATE_SUB(NOW(), INTERVAL 8 DAY),  4),
+('Helena Prado',   'helena@exemplo.com',  '123456', DATE_SUB(NOW(), INTERVAL 9 DAY),  1),
+('Igor Martins',   'igor@exemplo.com',    '123456', DATE_SUB(NOW(), INTERVAL 10 DAY), 2),
+('Julia Faria',    'julia@exemplo.com',   '123456', DATE_SUB(NOW(), INTERVAL 11 DAY), 5),
+('Kaique Torres',  'kaique@exemplo.com',  '123456', DATE_SUB(NOW(), INTERVAL 12 DAY), 3);
 
 -- 1:1 -> um perfil para cada usuário (mesmo id)
 INSERT INTO perfil_usuario (idUsuario, metaSemanalMin) VALUES
 (1, 180), (2, 150), (3, 200), (4, 120), (5, 180), (6, 240),
 (7, 180), (8, 90), (9, 150), (10, 180), (11, 120), (12, 200);
 
--- 15 vídeos, 3 por estilo (youtubeId NULL = vídeo em breve)
-INSERT INTO video (titulo, nivel, youtubeId, fkEstilo) VALUES
-('Postura e alinhamento em 5 minutos',  'Iniciante',       NULL, 1),   -- 1
-('Primeiros passos na barra',           'Iniciante',       NULL, 1),   -- 2
-('Port de bras para iniciantes',        'Básico',          NULL, 1),   -- 3
-('Fundamentos: bounce e rock',          'Iniciante',       NULL, 2),   -- 4
-('Isolações de peito e quadril',        'Básico',          NULL, 2),   -- 5
-('Freestyle sem medo',                  'Todos os níveis', NULL, 2),   -- 6
-('Respiração e peso',                   'Iniciante',       NULL, 3),   -- 7
-('Trabalho de chão básico',             'Básico',          NULL, 3),   -- 8
-('Fluxo e improviso',                   'Todos os níveis', NULL, 3),   -- 9
-('Aquecimento para coreografias',       'Iniciante',       NULL, 4),   -- 10
-('Contagem e precisão',                 'Básico',          NULL, 4),   -- 11
-('Aprenda uma coreografia em 4 passos', 'Todos os níveis', NULL, 4),   -- 12
-('Aquecimento geral para dançar',       'Iniciante',       NULL, 5),   -- 13
-('Consciência corporal',                'Básico',          NULL, 5),   -- 14
-('Criando seus primeiros movimentos',   'Todos os níveis', NULL, 5);   -- 15
+-- 15 vídeos, 3 por estilo (os links do YouTube ficam no index.html)
+INSERT INTO video (titulo, nivel, fkEstilo) VALUES
+('Postura e alinhamento em 5 minutos',  'Iniciante', 1),   -- 1
+('Primeiros passos na barra',           'Iniciante', 1),   -- 2
+('Port de bras para iniciantes',        'Básico', 1),   -- 3
+('Fundamentos: bounce e rock',          'Iniciante', 2),   -- 4
+('Isolações de peito e quadril',        'Básico', 2),   -- 5
+('Freestyle sem medo',                  'Todos os níveis', 2),   -- 6
+('Respiração e peso',                   'Iniciante', 3),   -- 7
+('Trabalho de chão básico',             'Básico', 3),   -- 8
+('Fluxo e improviso',                   'Todos os níveis', 3),   -- 9
+('Aquecimento para coreografias',       'Iniciante', 4),   -- 10
+('Contagem e precisão',                 'Básico', 4),   -- 11
+('Aprenda uma coreografia em 4 passos', 'Todos os níveis', 4),   -- 12
+('Aquecimento geral para dançar',       'Iniciante', 5),   -- 13
+('Consciência corporal',                'Básico', 5),   -- 14
+('Criando seus primeiros movimentos',   'Todos os níveis', 5);   -- 15
 
 -- N:N -> quem assistiu o quê (a mesma dupla usuário/vídeo não repete: PK composta)
 INSERT INTO usuario_video (fkUsuario, fkVideo, dtAssistido) VALUES
@@ -184,7 +151,7 @@ INSERT INTO ensaio (fkUsuario, fkEstilo, minutos, dtEnsaio) VALUES
 (7, 3, 45, DATE_SUB(NOW(), INTERVAL 2 DAY));
 
 
--- ============================ VIEWS ============================
+-- ============================ VIEW ============================
 -- View = SELECT salvo, que a gente usa como se fosse uma tabela.
 
 -- Resumo de cada usuário: subquery na coluna (cada coluna é um SELECT pequeno)
@@ -199,73 +166,26 @@ SELECT u.idUsuario,
 FROM usuario u
 JOIN estilo e ON e.idEstilo = u.fkEstilo;
 
--- Quantos dançarinos escolheram cada estilo (alimenta o gráfico radar)
-CREATE VIEW vw_estilos_comunidade AS
-SELECT e.nome AS estilo,
-       COUNT(u.idUsuario) AS total
-FROM estilo e
-LEFT JOIN usuario u ON u.fkEstilo = e.idEstilo
-GROUP BY e.nome;
-
 SELECT * FROM vw_resumo_usuario;
-SELECT * FROM vw_estilos_comunidade;
 
 
 -- ==================== SELECTs DO DASHBOARD ====================
--- Cada KPI e cada gráfico do dashboard.html vem de um SELECT.
--- Os números combinam com os comentários "SELECT n" do js/dashboard.js.
--- Nos SELECTs pessoais, o usuário 1 (conta demo) é o usuário logado.
+-- Cada número e gráfico do dashboard.html vem de um SELECT (src/models/dashboardModel.js).
+-- Aqui o usuário 1 (conta demo) é o usuário logado.
 
--- ----- COMUNIDADE -----
--- SELECT 1 (KPI): dançarinos cadastrados
-SELECT COUNT(*) AS dancarinos_cadastrados FROM usuario;
-
--- SELECT 2 (KPI): estilo mais votado da semana
-SELECT e.nome AS estilo, COUNT(*) AS votos
-FROM usuario u
-JOIN estilo e ON e.idEstilo = u.fkEstilo
-WHERE u.dtCadastro >= DATE_SUB(NOW(), INTERVAL 7 DAY)
-GROUP BY e.nome
-ORDER BY votos DESC
-LIMIT 1;
-
--- SELECT 3 (KPI): % de quem já praticou na infância ("querem retomar a dança")
-SELECT ROUND(SUM(CASE WHEN t.codigo = 'infancia' THEN 1 ELSE 0 END) / COUNT(*) * 100) AS pct_querem_retomar
-FROM usuario u
-JOIN tempo_pratica t ON t.idTempo = u.fkTempo;
-
--- SELECT 8 (gráfico radar): estilos favoritos da comunidade
-SELECT estilo, total FROM vw_estilos_comunidade;
-
--- SELECT 9 (gráfico de barras): o que a dança representa
-SELECT s.descricao AS sentido, COUNT(u.idUsuario) AS total
-FROM sentido s
-LEFT JOIN usuario u ON u.fkSentido = s.idSentido
-GROUP BY s.descricao
-ORDER BY total DESC;
-
--- SELECT 10 (colunas empilhadas): nível de experiência por estilo
-SELECT t.descricao AS contato_com_a_danca, e.nome AS estilo, COUNT(*) AS total
-FROM usuario u
-JOIN tempo_pratica t ON t.idTempo = u.fkTempo
-JOIN estilo e        ON e.idEstilo = u.fkEstilo
-GROUP BY t.descricao, e.nome
-ORDER BY t.descricao, e.nome;
-
--- ----- PESSOAL (usuário 1) -----
--- SELECT 4 (KPI): minutos de ensaio nos últimos 7 dias
+-- KPI: minutos de ensaio nos últimos 7 dias (o site também aceita 30 dias)
 SELECT IFNULL(SUM(minutos), 0) AS minutos_7_dias
 FROM ensaio
 WHERE fkUsuario = 1
   AND dtEnsaio >= DATE_SUB(NOW(), INTERVAL 7 DAY);
 
--- SELECT 5 (KPI): vídeos assistidos nos últimos 7 dias
+-- KPI: vídeos assistidos nos últimos 7 dias
 SELECT COUNT(*) AS videos_7_dias
 FROM usuario_video
 WHERE fkUsuario = 1
   AND dtAssistido >= DATE_SUB(NOW(), INTERVAL 7 DAY);
 
--- SELECT 7 (meta da semana): minutos da semana x meta do perfil (relacionamento 1:1)
+-- Meta da semana: minutos da semana x meta do perfil (relacionamento 1:1)
 SELECT IFNULL(SUM(en.minutos), 0) AS minutos_semana,
        p.metaSemanalMin AS meta,
        LEAST(100, ROUND(IFNULL(SUM(en.minutos), 0) / p.metaSemanalMin * 100)) AS pct_da_meta
@@ -275,15 +195,16 @@ LEFT JOIN ensaio en ON en.fkUsuario = p.idUsuario
 WHERE p.idUsuario = 1
 GROUP BY p.metaSemanalMin;
 
--- SELECT 11 (gráfico de linha): minutos de ensaio por dia
+-- Gráfico de linha "Meu tempo de ensaio": minutos por dia da semana escolhida no filtro
+-- (as duas datas vêm do site; aqui, os últimos 7 dias como exemplo)
 SELECT DATE(dtEnsaio) AS dia, SUM(minutos) AS minutos
 FROM ensaio
 WHERE fkUsuario = 1
-  AND dtEnsaio >= DATE_SUB(NOW(), INTERVAL 7 DAY)
+  AND DATE(dtEnsaio) BETWEEN DATE_SUB(CURDATE(), INTERVAL 6 DAY) AND CURDATE()
 GROUP BY DATE(dtEnsaio)
 ORDER BY dia;
 
--- SELECT 12 (gráfico de rosca): vídeos assistidos por estilo (passa pelo N:N)
+-- Gráfico de rosca: vídeos assistidos por estilo (passa pelo N:N)
 SELECT e.nome AS estilo, COUNT(*) AS videos
 FROM usuario_video uv
 JOIN video v  ON v.idVideo = uv.fkVideo
@@ -330,7 +251,7 @@ WHERE minutos_total > 0
 ORDER BY minutos_total DESC;
 
 -- SQRT e POWER: desvio padrão dos minutos por dia de ensaio do usuário 1
--- (mesma ideia do cálculo "Minha regularidade" em calculos.html; aqui só entram os dias com ensaio)
+-- (aqui só entram os dias que têm ensaio)
 SELECT ROUND(AVG(por_dia.minutos), 1) AS media_min,
        ROUND(SQRT(SUM(POWER(por_dia.minutos - (SELECT AVG(x.minutos)
                                                  FROM (SELECT SUM(minutos) AS minutos

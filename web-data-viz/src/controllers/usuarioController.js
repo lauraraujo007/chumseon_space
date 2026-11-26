@@ -15,10 +15,8 @@ function mensagemDeErro(erro) {
     return "Erro no servidor: " + ((erro && (erro.sqlMessage || erro.message)) || erro);
 }
 
-// Valores aceitos pelos radios do cadastro (são os "codigo" das tabelas de domínio do banco)
+// Valores aceitos pelos radios do cadastro (são os "codigo" da tabela estilo do banco)
 var ESTILOS = ["ballet", "hiphop", "contemporaneo", "kpop", "outro"];
-var TEMPOS = ["curioso", "infancia", "pratica"];
-var SENTIDOS = ["emocao", "saude", "estresse", "arte"];
 
 function autenticar(req, res) {
     var email = req.body.emailServer;
@@ -54,8 +52,6 @@ function cadastrar(req, res) {
     var email = req.body.emailServer;
     var senha = req.body.senhaServer;
     var estilo = req.body.estiloServer;
-    var tempo = req.body.tempoServer;
-    var sentido = req.body.sentidoServer;
 
     if (nome == undefined || nome.length < 2) {
         res.status(400).send("Seu nome está undefined ou muito curto!");
@@ -73,14 +69,6 @@ function cadastrar(req, res) {
         res.status(400).send("Estilo inválido!");
         return;
     }
-    if (TEMPOS.indexOf(tempo) == -1) {
-        res.status(400).send("Tempo de prática inválido!");
-        return;
-    }
-    if (SENTIDOS.indexOf(sentido) == -1) {
-        res.status(400).send("Sentido inválido!");
-        return;
-    }
 
     // 1) vê se o e-mail já existe  2) insere o usuário  3) cria o perfil 1:1
     usuarioModel.buscarPorEmail(email)
@@ -89,7 +77,7 @@ function cadastrar(req, res) {
                 res.status(409).send("Este e-mail já está cadastrado.");
                 return;
             }
-            return usuarioModel.cadastrar(nome, email, senha, estilo, tempo, sentido)
+            return usuarioModel.cadastrar(nome, email, senha, estilo)
                 .then(function (resultado) {
                     return usuarioModel.criarPerfil(resultado.insertId);
                 })

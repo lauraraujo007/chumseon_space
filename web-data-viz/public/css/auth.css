@@ -1,11 +1,4 @@
-/* ==========================================================================
-   auth.css  |  estilos SÓ de cadastro.html e login.html
-   Depende de css/base.css (.panel, .chips, .err, .hint, .pill ficam lá)
-   Ligações com o HTML:
-     .auth ........... <div class="auth"> (duas colunas: texto à esquerda, formulário à direita)
-     .ko ............. o 춤선 grande em contorno
-     label.f / .f input ... cada campo de texto do formulário
-   ========================================================================== */
+
 .auth {
   max-width: 1200px;
   margin: 0px auto 0;
@@ -30,7 +23,54 @@
   color: var(--hi);
 }
 
+.auth.empilhado {
+  grid-template-columns: 1fr;
+  align-items: start;
+  max-width: 960px;
+  min-height: 0;
+  padding: 30px 40px 50px;
+  gap: 28px;
+}
+.auth.empilhado .ko {
+  font-size: 100px;
+  padding: 0;
+}
+.auth.empilhado h1 {
+  margin: 8px 0 10px;
+}
+.auth.empilhado .lead {
+  margin: 0;
+}
 
+.auth.empilhado form {
+  width: 100%;
+  padding: 36px;
+  display: flex;
+  flex-direction: column;
+  gap: 26px;
+}
+.auth.empilhado fieldset,
+.auth.empilhado .err,
+.auth.empilhado .hint {
+  margin: 0;
+}
+
+/* Nome, E-mail e Senha lado a lado (3 colunas iguais) */
+.campos {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+}
+.campos label.f {
+  margin: 0;
+}
+
+/* botão "Criar conta" e "Já tem conta?" na mesma linha */
+.rodape-form {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+}
 
 label.f {
   display: block;

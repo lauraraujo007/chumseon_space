@@ -19,16 +19,16 @@ function buscarPorEmail(email) {
     return database.executar(instrucaoSql, [email]);
 }
 
-// INSERT em usuario. O site manda o "codigo" do estilo/tempo/sentido (ex.: 'kpop'),
-// e o SELECT troca cada código pelo id certo (chave estrangeira).
-function cadastrar(nome, email, senha, estilo, tempo, sentido) {
+// INSERT em usuario. O site manda o "codigo" do estilo (ex.: 'kpop'),
+// e o SELECT troca o código pelo id certo (chave estrangeira).
+function cadastrar(nome, email, senha, estilo) {
     var instrucaoSql = `
-        INSERT INTO usuario (nome, email, senha, fkEstilo, fkTempo, fkSentido)
-        SELECT ?, ?, ?, e.idEstilo, t.idTempo, s.idSentido
-        FROM estilo e, tempo_pratica t, sentido s
-        WHERE e.codigo = ? AND t.codigo = ? AND s.codigo = ?;
+        INSERT INTO usuario (nome, email, senha, fkEstilo)
+        SELECT ?, ?, ?, e.idEstilo
+        FROM estilo e
+        WHERE e.codigo = ?;
     `;
-    return database.executar(instrucaoSql, [nome, email, senha, estilo, tempo, sentido]);
+    return database.executar(instrucaoSql, [nome, email, senha, estilo]);
 }
 
 // INSERT em perfil_usuario (1:1): o id do perfil é o mesmo id do usuário
